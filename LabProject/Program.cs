@@ -6,124 +6,57 @@ using System.Threading.Tasks;
 
 namespace LabProject
 {
-    //Creating the structs for student, professor, degree, program and course
-
-    public struct student
-    {
-        //Variables
-        public string firstName;
-        public string lastName;
-        public string birthday;
-        
-        //Constructor
-        public student(string firstName, string lastName, string birthday)
-        {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.birthday = birthday;
-        }
-    }
-
-    public struct professor
-    {
-        //Variables
-        public string firstName;
-        public string lastName;
-        public string birthday;
-
-        //Constructor
-        public professor(string firstName, string lastName, string birthday)
-        {
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.birthday = birthday;
-        }
-    }
-
-    public struct degree
-    {
-        //Variables
-        public string name;
-        public int requiredCredits;
-        public int workload;
-
-        //Constructor
-        public degree(string name, int requiredCredits, int workload)
-        {
-            this.name = name;
-            this.requiredCredits = requiredCredits;
-            this.workload = workload;
-        }
-    }
-
-    public struct program
-    {
-        //Variables
-        public string name;
-        public string degrees;
-        public string departmentHead;
-
-        //Constructor
-        public program(string name, string degrees, string departmentHead)
-        {
-            this.name = name;
-            this.degrees = degrees;
-            this.departmentHead = departmentHead;
-        }
-    }
-
-    public struct course
-    {
-        //Variables
-        public string name;
-        public string condition;
-
-        //Constructor
-        public course(string name, string condition)
-        {
-            this.name = name;
-            this.condition = condition;
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
         {
-            //Create instances of the structs
-
-            student jeferson = new student("Jéferson", "Guimarães", "02/08/1995");
-            professor garry = new professor("Garry", "O'Brien", "01/01/1965");
-            degree computerEngineering = new degree("Bachelor in Computer Engineering", 156, 2640);
-            program computation = new program("Computation", "Master, Ph.D.", "IT Institute");
-            course softwareEngineering = new course("Software Engineering", "Required");
-
-            //Create the students array
-
-            student[] studentArray = new student[5];
-
             try
             {
-                //Populate the students array
+                //Instantiating three Student objects
+                Student jeferson = new Student("Jéferson", "Guimarães");
+                Student john = new Student("John", "Smith");
+                Student ana = new Student("Ana", "da Silva");
 
-                studentArray[0] = jeferson;
+                //Instantiating the Course object
+                Course programmingWithCSharp = new Course("Programming with C#");
 
-                for (int x = 1; x < 5; x++)
-                    studentArray[x] = new student();
+                //Adding the Student objects to the Course object
+                programmingWithCSharp.Students[0] = jeferson;
+                programmingWithCSharp.Students[1] = john;
+                programmingWithCSharp.Students[2] = ana;
 
-                //Call a function that outputs the information of the first student
+                //Instantiating Teacher object
+                Teacher garry = new Teacher("Garry", "O'Brien");
 
-                printStudentInformation(jeferson);
+                //Adding the Teacher to the Course object
+                programmingWithCSharp.Teachers[0] = garry;
 
-                //Assign values to another student
+                //Instantiating Degree object
+                Degree bachelorOfScience = new Degree("Bachelor of Science");
 
-                studentArray[1].firstName = "John";
-                studentArray[1].lastName = "Smith";
-                studentArray[1].birthday = "01/01/1990";
+                //Adding the Course object to the Degree object
+                bachelorOfScience.Courses = programmingWithCSharp;
 
-                //Output the information of the second student
+                //Instantiating UProgram object
+                UProgram informationTechnology = new UProgram("Information Technology");
 
-                printStudentInformation(studentArray[1]);
+                //Adding the Degree object to the UProgram object
+                informationTechnology.Degrees = bachelorOfScience;
+
+                //Printing the name of the program and the degree it contains
+                Console.WriteLine("The {0} program contains the {1} degree\n",
+                    informationTechnology.Name, bachelorOfScience.Name);
+
+                //Printing the name of the course in the degree
+                Console.WriteLine("The {0} degree contains the course {1}\n",
+                    bachelorOfScience.Name, programmingWithCSharp.Name);
+
+                //Printing the number of students in the course
+                //The static method getNumberOfStudents return the value of the static variable numberOfStudents
+                //In the constructor the variable is incremented
+                Console.WriteLine("The {0} course contains {1} student(s)\n",
+                    programmingWithCSharp.Name, Student.getNumberOfStudents());
+
             }
             catch (Exception e)
             {
@@ -143,16 +76,6 @@ namespace LabProject
         {
             //Method to add a new line after a block of information, to organize info on screen
             Console.WriteLine();
-        }
-
-        static void printStudentInformation(student pupil)
-        {
-            //Print the values of the variables of the student using a series of Console.WriteLine
-            Console.WriteLine("Student's first name: {0}", pupil.firstName);
-            Console.WriteLine("Student's last name: {0}", pupil.lastName);
-            Console.WriteLine("Student's birthday: {0}", pupil.birthday);
-
-            addLineToConsole();
         }
     }
 }
