@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace LabProject
 {
-    class Teacher
+    class Teacher : Person
     {
-        //Properties
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-
         //Constructor
-        public Teacher(string firstName, string lastName)
+        public Teacher(string firstName, string lastName, DateTime birthday)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
+            this.Birthday = birthday;
+        }
+
+        //Methods
+        public void GradeTest()
+        {
+            Console.WriteLine("The teacher {0} {1} is grading a test", FirstName, LastName);
         }
     }
 }
