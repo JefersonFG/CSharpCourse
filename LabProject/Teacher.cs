@@ -9,6 +9,7 @@ namespace LabProject
     class Teacher : Person
     {
         //Constructor
+
         public Teacher(string firstName, string lastName, DateTime birthday)
         {
             this.FirstName = firstName;
@@ -17,6 +18,7 @@ namespace LabProject
         }
 
         //Methods
+
         public void GradeTest()
         {
             Console.WriteLine("The teacher {0} {1} is grading a test", FirstName, LastName);

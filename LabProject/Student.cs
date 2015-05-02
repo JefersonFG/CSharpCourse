@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,15 @@ namespace LabProject
 {
     class Student : Person
     {
+        //Fields
+
         //Static variable to keep track of the number of students in the school
         private static int numberOfStudents = 0;
 
-        //Constructor
+        public Stack grades;
+
+        //Constructors
+
         public Student(string firstName, string lastName, DateTime birthday)
         {
             this.FirstName = firstName;
@@ -20,9 +26,13 @@ namespace LabProject
 
             //Increment the number of students
             numberOfStudents++;
+
+            //Instantiate the grades object
+            grades = new Stack();
         }
 
         //Methods
+
         public static int GetNumberOfStudents()
         {
             return numberOfStudents;
