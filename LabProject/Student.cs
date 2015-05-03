@@ -14,7 +14,9 @@ namespace LabProject
         //Static variable to keep track of the number of students in the school
         private static int numberOfStudents = 0;
 
-        public Stack grades;
+        //Properties
+
+        public Stack<Int32> Grades { get; set; }
 
         //Constructors
 
@@ -28,7 +30,7 @@ namespace LabProject
             numberOfStudents++;
 
             //Instantiate the grades object
-            grades = new Stack();
+            Grades = new Stack<Int32>();
         }
 
         //Methods

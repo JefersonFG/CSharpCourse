@@ -9,14 +9,11 @@ namespace LabProject
 {
     class Course
     {
-        //Fields
-
-        public ArrayList studentList;
-
         //Properties
 
         public string Name { get; set; }
         public Teacher[] Teachers { get; set; }
+        public List<Student> StudentList { get; set; }
 
         //Constructor
 
@@ -24,8 +21,8 @@ namespace LabProject
         {
             this.Name = name;
 
-            //Instantiate the studentList ArrayList
-            studentList = new ArrayList();
+            //Instantiate the studentList List<T>
+            this.StudentList = new List<Student>();
 
             //Automatically creates arrays of three for the Teachers property
             Teachers = new Teacher[3];
@@ -37,14 +34,8 @@ namespace LabProject
         {
             Console.WriteLine("Listing the students applying to the course:\n");
 
-            //Creating a student object outside the foreach loop
-            Student student;
-
-            //Iterating with a System.Object in order to explicitly cast it after
-            foreach (System.Object studentObject in studentList)
+            foreach (Student student in StudentList)
             {
-                //Explicitly casting the System.Object to Student
-                student = (Student) studentObject;
                 Console.WriteLine("Student's name: {0} {1}", student.FirstName, student.LastName);
             }
         }

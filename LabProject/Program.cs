@@ -29,29 +29,29 @@ namespace LabProject
 
                 //Creating the grades for the students
 
-                jeferson.grades.Push(10);
-                jeferson.grades.Push(10);
-                jeferson.grades.Push(9);
-                jeferson.grades.Push(9);
-                jeferson.grades.Push(10);
+                jeferson.Grades.Push(10);
+                jeferson.Grades.Push(10);
+                jeferson.Grades.Push(9);
+                jeferson.Grades.Push(9);
+                jeferson.Grades.Push(10);
 
-                john.grades.Push(2);
-                john.grades.Push(3);
-                john.grades.Push(4);
-                john.grades.Push(3);
-                john.grades.Push(1);
+                john.Grades.Push(2);
+                john.Grades.Push(3);
+                john.Grades.Push(4);
+                john.Grades.Push(3);
+                john.Grades.Push(1);
 
-                ana.grades.Push(6);
-                ana.grades.Push(7);
-                ana.grades.Push(6);
-                ana.grades.Push(4);
-                ana.grades.Push(9);
+                ana.Grades.Push(6);
+                ana.Grades.Push(7);
+                ana.Grades.Push(6);
+                ana.Grades.Push(4);
+                ana.Grades.Push(9);
 
                 //Adding the Student objects to the Course object's arrayList
 
-                programmingWithCSharp.studentList.Add(jeferson);
-                programmingWithCSharp.studentList.Add(john);
-                programmingWithCSharp.studentList.Add(ana);
+                programmingWithCSharp.StudentList.Add(jeferson);
+                programmingWithCSharp.StudentList.Add(john);
+                programmingWithCSharp.StudentList.Add(ana);
 
                 //Assigning the object structure
 
